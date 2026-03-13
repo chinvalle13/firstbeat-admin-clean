@@ -68,8 +68,6 @@ window.location.reload()
 }
 
 const [students,setStudents] = useState([])
-
-const [students,setStudents] = useState([])
 const [search,setSearch] = useState("")
 
 const [newStudent,setNewStudent] = useState("")
