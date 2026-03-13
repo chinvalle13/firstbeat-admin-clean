@@ -52,6 +52,23 @@ return count
 }
 
 export default function FirstBeatAdminPortal(){
+    export default function FirstBeatAdminPortal(){
+
+const resetWeeklyPayroll = () => {
+
+const confirmReset = window.confirm(
+"Close this week's payroll and reset for next week?"
+)
+
+if(!confirmReset) return
+
+alert("Payroll reset for the new week.")
+
+window.location.reload()
+
+}
+
+const [students,setStudents] = useState([])
 
 const [students,setStudents] = useState([])
 const [search,setSearch] = useState("")
@@ -336,9 +353,20 @@ First Beat Music Studio – Admin Portal
 
 <div className="border rounded-2xl shadow p-4">
 
-<h2 className="text-xl font-semibold mb-4">
+<div className="flex justify-between items-center mb-4">
+
+<h2 className="text-xl font-semibold">
 Teacher Payroll per Teacher
 </h2>
+
+<button
+className="bg-red-600 text-white px-3 py-1 rounded"
+onClick={resetWeeklyPayroll}
+>
+Reset Weekly Payroll
+</button>
+
+</div>
 
 {Object.entries(teacherPayroll).map(([t,amount])=>(
 <p key={t}>{t} — ₱{amount}</p>
