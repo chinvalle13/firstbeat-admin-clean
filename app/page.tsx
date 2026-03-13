@@ -52,7 +52,6 @@ return count
 }
 
 export default function FirstBeatAdminPortal(){
-    export default function FirstBeatAdminPortal(){
 
 const resetWeeklyPayroll = () => {
 
