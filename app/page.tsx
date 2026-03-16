@@ -53,7 +53,7 @@ return count
 
 export default function FirstBeatAdminPortal(){
 
-const resetWeeklyPayroll = () => {
+const resetWeeklyPayroll = async () => {
 
 const confirmReset = window.confirm(
 "Close this week's payroll and reset for next week?"
@@ -61,10 +61,18 @@ const confirmReset = window.confirm(
 
 if(!confirmReset) return
 
-alert("Payroll reset for the new week.")
+const today = new Date().toISOString().split("T")[0]
 
-window.location.reload()
+await supabase
+.from("students")
+.update({ payrollResetDate: today })
+.neq("id", 0)
 
+alert("Weekly payroll has been reset.")
+
+loadStudents()
+
+}
 }
 
 const [students,setStudents] = useState([])
