@@ -73,7 +73,7 @@ alert("Weekly payroll has been reset.")
 loadStudents()
 
 }
-}
+
 
 const [students,setStudents] = useState([])
 const [search,setSearch] = useState("")
