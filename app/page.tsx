@@ -283,7 +283,10 @@ const studentDays = s.lessonDays || [s.lessonDay]
 
 const usedLessons = Math.max(
 0,
-countLessonDaysMultiple(s.paymentDate,studentDays)-(s.absences||0)
+countLessonDaysMultiple(
+s.payrollResetDate || s.paymentDate,
+studentDays
+) - (s.absences || 0)
 )
 
 const t = s.teacher || "No Teacher"
